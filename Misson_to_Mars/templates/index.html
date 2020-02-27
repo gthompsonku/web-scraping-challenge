@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
 
     <div class="jumbotron text-center">
       <h1>Misson to Mars</h1>
@@ -18,42 +18,45 @@
     </div>
 
     <!-- Latest News -->
-    <div class="row" id="mars-news">
+    <div class="row" >
       <div class="col-md-12">
-        <h4 class="heading">Latest Mars News</h4>
-        <h5>{{mars.news_title}}</h5>
-        <p>{{mars.news_p}}</p>
+        <h2 class="heading">Latest Mars News</h2>
         <hr>
+        <h4>{{mars.news_title}}</h4>
+        <p>{{mars.news_p}}</p>
+        <br>
       </div>
     </div>
 
     <div class='row'>
        <!-- Featured Image News -->
         <div class = 'col-md-8'>
-          <h4>Featured Mars Image</h4>
-          
-          <img src='{{ mars.main_img }}' class='img-thumbnail' alt='Image of Mars'>
+          <h3>Featured Mars Image</h3>
+          <figure>
+            <img src='{{ mars.main_img }}' class='img-thumbnail' alt='Image of Mars'>
+          </figure>
         </div>
         <div class = 'col-md-4'>
           <!-- Mars Weather -->
-            <span class="border border-primary bg-info">
-                <h4>Current Weather on Mars</h4>
+            <div class="border border-dark">
+                <h3>Current Weather on Mars</h3>
                 <p>{{mars.weather}}</p>
-            </span>
+            </div>
+            <br>
             <!-- Mars facts -->
-            <span>
-                <h4>Mars Facts</h4>
+            <div>
+                <h3>Mars Facts</h3>
                 <table class='table'>{{mars.facts|safe}}</table>
-            </span>
+            </div>
         </div>
         
     </div>
-  </div>
-  <div class='container'>
+  
+  
     <hr>
     <div class='row'>
         <div class = 'col-md-12'>
-          <h4>Mars Hemispheres</h4>
+          <h2>Mars' Hemispheres</h2>
         </div>
     </div>
 
@@ -61,9 +64,11 @@
       {% for item in mars.hemispheres %}
       <div class='col-md-6 p-2'>
         <figure class='figure'>
-        <img src='{{ item.img_url }}' class='img-thumbnail' alt='{{item.title}}'>
-        <div class='text-center'>{{item.title}}</div>
+          <img src='{{ item.img_url }}' class='img-thumbnail' alt='{{item.title}}'>
         </figure>
+        <p class='text-center font-weight-bold'>{{item.title}}</p>
+       
+        <br>
     
       </div>
       {% endfor %}
